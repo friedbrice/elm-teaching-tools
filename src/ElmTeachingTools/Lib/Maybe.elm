@@ -1,5 +1,5 @@
 module ElmTeachingTools.Lib.Maybe exposing
-    ( assert
+    ( assert, filtered
     , cases
     , compose, paired, orElse, filter, traverse, sequence
     )
@@ -9,7 +9,7 @@ module ElmTeachingTools.Lib.Maybe exposing
 
 # Create maybes
 
-@docs assert
+@docs assert, filtered
 
 
 # Use maybes
@@ -44,6 +44,29 @@ assert p x =
         Nothing
 
 
+{-| Keep a value if it passes a predicate.
+
+I like to think of this function as converting a predicate
+`a -> Bool` into a more informative function `a -> Maybe a`.
+
+    --| Rejects values that fail the predicate.
+    filtered even 5
+    --> Nothing
+
+    --| Keeps values that pass the predicate.
+    filtered even 6
+    --> Just 6
+
+-}
+filtered : (a -> Bool) -> a -> Maybe a
+filtered f x =
+    if f x then
+        Just x
+
+    else
+        Nothing
+
+
 {-| Consume a maybe value by providing a callback to run if the value is
 present and a fallback value in case it is not. Conceptually similar to
 pattern matching, but in the form of a function.
@@ -70,15 +93,15 @@ cases y f xs =
 {-| Chain two functions that produce `Maybe`s together.
 
     --| Succeeds when both functions succeed.
-    compose (\x -> assert (modBy 2 x == 0) x) String.toInt "46"
+    compose (filtered even) String.toInt "46"
     --> Just 46
 
     --| Fails when second function applied fails.
-    compose (\x -> assert (modBy 2 x == 0) x) String.toInt "47"
+    compose (filtered even) String.toInt "47"
     --> Nothing
 
     --| Fails when first function applied fails.
-    compose (\x -> assert (modBy 2 x == 0) x) String.toInt "nope"
+    compose (filtered even) String.toInt "nope"
     --> Nothing
 
 -}

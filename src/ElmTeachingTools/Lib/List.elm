@@ -209,7 +209,7 @@ cross =
 {-| Create the list of all pairs that satisfy a condition.
 
     --| Example.
-    join (\x y -> modBy 2 (x + y) == 0) [1, 2, 3] [4, 5, 6]
+    join (\x y -> even (x + y)) [1, 2, 3] [4, 5, 6]
     --> [(1, 5), (2, 4), (2, 6), (3, 5)]
 
 -}
@@ -300,15 +300,15 @@ dec enum elem =
 an empty maybe if no list elements satisfy the predicate.
 
     --| Finds first list element that matches.
-    find (\x -> modBy 2 x == 0) [ 3, 5, 4, 1, 2 ]
+    find even [ 3, 5, 4, 1, 2 ]
     --> Just 4
 
     --| Fails if no list element matches.
-    find (\x -> modBy 2 x == 0) [ 3, 5, 5, 1, 7 ]
+    find even [ 3, 5, 5, 1, 7 ]
     --> Nothing
 
     --| Fails on empty list.
-    find (\x -> modBy 2 x == 0) []
+    find even []
     --> Nothing
 
 -}
@@ -356,7 +356,7 @@ mapReduce mult e eval =
 
     --| Example.
     groupBy String.length ["hello", "in", "TV", "land"]
-    --> Dict.fromList [(2,["in","TV"]),(4,["land"]),(5,["hello"])]
+    --> fromList [(2,["in","TV"]),(4,["land"]),(5,["hello"])]
 
 -}
 groupBy : (a -> comparable) -> List a -> Dict.Dict comparable (List a)

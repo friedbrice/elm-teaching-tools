@@ -1,7 +1,7 @@
 module ElmTeachingTools.Lib.ListDoc exposing (..)
 
-import Dict
 import ElmTeachingTools.Lib.List exposing (..)
+import ElmTeachingTools.TestCommon exposing (..)
 import Expect
 import Test
 
@@ -111,7 +111,7 @@ suite =
             [ Test.test "Example." <|
                 \_ ->
                     Expect.equal
-                        (join (\x y -> modBy 2 (x + y) == 0) [ 1, 2, 3 ] [ 4, 5, 6 ])
+                        (join (\x y -> even (x + y)) [ 1, 2, 3 ] [ 4, 5, 6 ])
                         [ ( 1, 5 ), ( 2, 4 ), ( 2, 6 ), ( 3, 5 ) ]
             ]
         , Test.describe "inc"
@@ -162,17 +162,17 @@ suite =
             [ Test.test "Finds first list element that matches." <|
                 \_ ->
                     Expect.equal
-                        (find (\x -> modBy 2 x == 0) [ 3, 5, 4, 1, 2 ])
+                        (find even [ 3, 5, 4, 1, 2 ])
                         (Just 4)
             , Test.test "Fails if no list element matches." <|
                 \_ ->
                     Expect.equal
-                        (find (\x -> modBy 2 x == 0) [ 3, 5, 5, 1, 7 ])
+                        (find even [ 3, 5, 5, 1, 7 ])
                         Nothing
             , Test.test "Fails on empty list." <|
                 \_ ->
                     Expect.equal
-                        (find (\x -> modBy 2 x == 0) [])
+                        (find even [])
                         Nothing
             ]
         , Test.describe "mapReduce"
@@ -202,6 +202,6 @@ suite =
                 \_ ->
                     Expect.equal
                         (groupBy String.length [ "hello", "in", "TV", "land" ])
-                        (Dict.fromList [ ( 2, [ "in", "TV" ] ), ( 4, [ "land" ] ), ( 5, [ "hello" ] ) ])
+                        (fromList [ ( 2, [ "in", "TV" ] ), ( 4, [ "land" ] ), ( 5, [ "hello" ] ) ])
             ]
         ]

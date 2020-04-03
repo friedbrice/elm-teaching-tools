@@ -1,6 +1,7 @@
 module ElmTeachingTools.Lib.MaybeDoc exposing (..)
 
 import ElmTeachingTools.Lib.Maybe exposing (..)
+import ElmTeachingTools.TestCommon exposing (..)
 import Expect
 import Test
 
@@ -20,6 +21,18 @@ suite =
                         (assert False 5)
                         Nothing
             ]
+        , Test.describe "filtered"
+            [ Test.test "Rejects values that fail the predicate." <|
+                \_ ->
+                    Expect.equal
+                        (filtered even 5)
+                        Nothing
+            , Test.test "Keeps values that pass the predicate." <|
+                \_ ->
+                    Expect.equal
+                        (filtered even 6)
+                        (Just 6)
+            ]
         , Test.describe "cases"
             [ Test.test "`Nothing` uses the fallback." <|
                 \_ ->
@@ -36,17 +49,17 @@ suite =
             [ Test.test "Succeeds when both functions succeed." <|
                 \_ ->
                     Expect.equal
-                        (compose (\x -> assert (modBy 2 x == 0) x) String.toInt "46")
+                        (compose (filtered even) String.toInt "46")
                         (Just 46)
             , Test.test "Fails when second function applied fails." <|
                 \_ ->
                     Expect.equal
-                        (compose (\x -> assert (modBy 2 x == 0) x) String.toInt "47")
+                        (compose (filtered even) String.toInt "47")
                         Nothing
             , Test.test "Fails when first function applied fails." <|
                 \_ ->
                     Expect.equal
-                        (compose (\x -> assert (modBy 2 x == 0) x) String.toInt "nope")
+                        (compose (filtered even) String.toInt "nope")
                         Nothing
             ]
         , Test.describe "paired"
