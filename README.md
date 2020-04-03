@@ -24,4 +24,4 @@ The `Labs` module root contains several labs that can be completed in the classr
 
 Copyright 2020-present Daniel Brice.
 
-Licensed under the BSD 3-clause license. See _LICENSE_ for details.
+Licensed under the BSD 3-clause license. See the _LICENSE_ file in the project repository for details.
