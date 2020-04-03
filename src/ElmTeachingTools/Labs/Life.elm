@@ -6,8 +6,8 @@ module ElmTeachingTools.Labs.Life exposing
 
 {-| Conway's Game of Life.
 
-For details, see the Wikipedia
-[article][https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life].
+For details, see the Wikipedia article,
+<https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life>.
 
 
 # Basics
@@ -34,38 +34,38 @@ import ElmTeachingTools.Lib.List as List
 import ElmTeachingTools.Lib.Memoize as Memoize
 
 
-{-| Cell.
-
-A cell is a position in an infinite grid.
-
+{-| A cell is a position in an infinite grid.
 -}
 type alias Cell =
     ( Int, Int )
 
 
-{-| CellStatus
-
-A cell is either `Alive` or `Dead`.
-
+{-| A cell is either `Alive` or `Dead`.
 -}
 type CellStatus
     = Dead
     | Alive
 
 
-{-| Board
+{-| Conceptually, a board is an infinite grid of cells, each of which
+is either alive or dead.
 
-A board is an infinite grid of cells that tells you which cells are
-alive and which cells are dead.
+We model this concept in our program using a **function**. Specifically,
+a function that outputs a `CellStatus` when you input a `Cell`.
+
+If you have a `Board` and `Cell`, you can find the status of that
+`Cell` by plugging it into the `Board`.
+
+If you need to create a board, you do so by writing a function whose
+variable is a `Cell` and that returns a `CellStatus`.
 
 -}
 type alias Board =
     Cell -> CellStatus
 
 
-{-| LifeRules
-
-The rules of Life can be expressed as three functions.
+{-| The rules we need to describe in order to make a working _Life_ game
+can be modeled by these three functions:
 
   - `nextStatus`
 
@@ -81,7 +81,7 @@ cell have? You'll need a tiny bit of geometry to write this function.
   - `nextBoard`
 
 Given the current board, what should the next board be? You should use
-you `livingNeighbors` and `nextStatus` functions to write this function.
+your `livingNeighbors` and `nextStatus` functions to write this function.
 
 -}
 type alias LifeRules =

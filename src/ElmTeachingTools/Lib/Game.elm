@@ -36,10 +36,14 @@ type alias Game s e =
 This follows the _State Machine_ program architecture. We must provide:
 
 1.  A type `s` of possible program states,
-2.  A type `GameEvent e` of possible events,
+2.  A type `e` of possible custom events,
 3.  A starting state `init : s`,
 4.  A transition function `update : GameEvent e -> s -> s`, and
 5.  A view function `view : s -> Screen e`
+
+This framework comes with some built-in events. Specifically,
+`GameEvent` can be a `ClockTick` event, a `Keyboard` event,
+or it can be a `Custom` event with type `e`.
 
 -}
 game :
@@ -87,13 +91,13 @@ type alias Timestamp =
 
 {-| Events that your game can respond to.
 
-The `ClockTick` event occurs about 60 times per second and carries the
+A `ClockTick` event occurs about 60 times per second and carries the
 current timestamp.
 
-The `Keyboard` event occurs whenever a key is pushed down or released
+A `Keyboard` event occurs whenever a key is pushed down or released
 (see `Lib.Keyboard`).
 
-The `Custom` event can be triggered by the `onClick` property of a
+A `Custom` event can be triggered by the `onClick` property of a
 `Graphic` element (see `Lib.Graphics`).
 
 -}

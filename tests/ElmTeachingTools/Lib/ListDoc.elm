@@ -1,5 +1,6 @@
 module ElmTeachingTools.Lib.ListDoc exposing (..)
 
+import Dict
 import ElmTeachingTools.Lib.List exposing (..)
 import Expect
 import Test
@@ -183,8 +184,8 @@ suite =
             , Test.test "Can simulate `List.sum`." <|
                 \_ ->
                     Expect.equal
-                        (mapReduce (+) 0 String.length [])
-                        0
+                        (mapReduce (+) 0 identity [ 3, 4, -2, 1 ])
+                        6
             , Test.test "More general than `String.concat`." <|
                 \_ ->
                     Expect.equal
@@ -200,7 +201,7 @@ suite =
             [ Test.test "Example." <|
                 \_ ->
                     Expect.equal
-                        (Debug.toString (groupBy String.length [ "hello", "in", "TV", "land" ]))
-                        "Dict.fromList [(2,[\"in\",\"TV\"]),(4,[\"land\"]),(5,[\"hello\"])]"
+                        (groupBy String.length [ "hello", "in", "TV", "land" ])
+                        (Dict.fromList [ ( 2, [ "in", "TV" ] ), ( 4, [ "land" ] ), ( 5, [ "hello" ] ) ])
             ]
         ]

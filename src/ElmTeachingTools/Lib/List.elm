@@ -335,8 +335,8 @@ results using the combining function.
     --> 13
 
     --| Can simulate `List.sum`.
-    mapReduce (+) 0 String.length []
-    --> 0
+    mapReduce (+) 0 identity [3, 4, -2, 1]
+    --> 6
 
     --| More general than `String.concat`.
     mapReduce (++) "" String.fromInt [3, 4, 5, 23]
@@ -355,8 +355,8 @@ mapReduce mult e eval =
 {-| Provide a key function to partition a list into sublists by key.
 
     --| Example.
-    Debug.toString (groupBy String.length ["hello", "in", "TV", "land"])
-    --> "Dict.fromList [(2,[\"in\",\"TV\"]),(4,[\"land\"]),(5,[\"hello\"])]"
+    groupBy String.length ["hello", "in", "TV", "land"]
+    --> Dict.fromList [(2,["in","TV"]),(4,["land"]),(5,["hello"])]
 
 -}
 groupBy : (a -> comparable) -> List a -> Dict.Dict comparable (List a)
