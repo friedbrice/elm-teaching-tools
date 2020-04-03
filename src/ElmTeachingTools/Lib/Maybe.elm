@@ -1,4 +1,8 @@
-module ElmTeachingTools.Lib.Maybe exposing (..)
+module ElmTeachingTools.Lib.Maybe exposing
+    ( assert
+    , cases
+    , compose, paired, orElse, filter, traverse, sequence
+    )
 
 {-| Extra functions to make working with maybes easier.
 
@@ -10,12 +14,12 @@ module ElmTeachingTools.Lib.Maybe exposing (..)
 
 # Use maybes
 
-@docs cases, filtered
+@docs cases
 
 
 # Transform maybes
 
-@docs compose, paired, orElse, traverse, sequence, filter
+@docs compose, paired, orElse, filter, traverse, sequence
 
 -}
 

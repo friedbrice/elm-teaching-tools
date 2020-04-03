@@ -1,4 +1,4 @@
-module ElmTeachingTools.Lib.String exposing (..)
+module ElmTeachingTools.Lib.String exposing (toInts, fromInts, format)
 
 {-| Extra functions to make working with strings easier.
 

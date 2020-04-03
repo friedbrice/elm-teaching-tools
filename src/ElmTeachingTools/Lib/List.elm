@@ -1,4 +1,9 @@
-module ElmTeachingTools.Lib.List exposing (..)
+module ElmTeachingTools.Lib.List exposing
+    ( iterate, unfold, fromMaybe
+    , dropWhile, takeWhile, filterMaybes
+    , zip, cross, join
+    , inc, dec, find, mapReduce, groupBy
+    )
 
 {-| Extra functions to make working with lists easier.
 

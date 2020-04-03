@@ -1,50 +1,42 @@
 {
     "type": "package",
-    "name": "elm-teaching-tools",
+    "name": "friedbrice/elm-teaching-tools",
     "summary": "Tools for using Elm in the classroom.",
     "license":"BSD-3-Clause",
     "version": "1.0.0",
     "exposed-modules":[
-        "Labs.Introduction",
-        "Labs.Life",
-        "Lib.Color",
-        "Lib.Game",
-        "Lib.Graphics",
-        "Lib.Keyboard",
-        "Lib.List",
-        "Lib.Maybe",
-        "Lib.Memoize",
-        "Lib.String"
+        "ElmTeachingTools.Labs.Introduction",
+        "ElmTeachingTools.Labs.Life",
+        "ElmTeachingTools.Lib.Color",
+        "ElmTeachingTools.Lib.Game",
+        "ElmTeachingTools.Lib.Graphics",
+        "ElmTeachingTools.Lib.Keyboard",
+        "ElmTeachingTools.Lib.List",
+        "ElmTeachingTools.Lib.Maybe",
+        "ElmTeachingTools.Lib.Memoize",
+        "ElmTeachingTools.Lib.String"
     ],
     "elm-version":"0.19.0 <= v < 0.20.0",
     "source-directories": [
         "src"
     ],
     "dependencies": {
-        "direct": {
-            "elm/browser": "1.0.0 <= v < 2.0.0",
-            "elm/core": "1.0.0 <= v < 2.0.0",
-            "elm/html": "1.0.0 <= v < 2.0.0",
-            "elm/json": "1.1.0 <= v < 2.0.0",
-            "elm/svg": "1.0.0 <= v < 2.0.0",
-            "elm/time": "1.0.0 <= v < 2.0.0",
-            "rundis/elm-bootstrap": "5.2.0 <= v < 6.0.0"
-        },
-        "indirect": {
-            "avh4/elm-color": "1.0.0 <= v < 2.0.0",
-            "elm/url": "1.0.0 <= v < 2.0.0",
-            "elm/virtual-dom": "1.0.0 <= v < 2.0.0"
-        }
+        "elm/browser": "1.0.0 <= v < 2.0.0",
+        "elm/core": "1.0.0 <= v < 2.0.0",
+        "elm/html": "1.0.0 <= v < 2.0.0",
+        "elm/json": "1.1.0 <= v < 2.0.0",
+        "elm/svg": "1.0.0 <= v < 2.0.0",
+        "elm/time": "1.0.0 <= v < 2.0.0",
+        "rundis/elm-bootstrap": "5.2.0 <= v < 6.0.0",
+        "avh4/elm-color": "1.0.0 <= v < 2.0.0",
+        "elm/url": "1.0.0 <= v < 2.0.0",
+        "elm/virtual-dom": "1.0.0 <= v < 2.0.0"
     },
     "test-directories": [
         "tests"
     ],
     "test-dependencies": {
-        "direct": {
-            "elm-explorations/test": "1.2.0 <= v < 2.0.0"
-        },
-        "indirect": {
-            "elm/random": "1.0.0 <= v < 2.0.0"
-        }
+        "elm-explorations/test": "1.2.0 <= v < 2.0.0",
+        "elm/random": "1.0.0 <= v < 2.0.0"
     }
 }
