@@ -26,49 +26,43 @@ import Html.Events exposing (..)
 {-| This lab consists of six exercises to help you get started learning
 the basics of Elm and how to use it to write interactive web programs.
 
-  - `sayHello : String -> String`
+  - `ex0_sayHello : String -> String`
+    Give someone a nice, name-appropriate greeting.
+    If their name ends with "y", give them a friendly "Hey, <name>!".
+    If their name doesn't end with "y", give a more formal "Hello, <name>.".
+    If they leave their name blank, kindly ask "Hello, who's there?".
 
-Give someone a nice, name-appropriate greeting.
-If their name ends with "y", give them a friendly "Hey, <name>!".
-If their name doesn't end with "y", give a more formal "Hello, <name>.".
-If they leave their name blank, kindly ask "Hello, who's there?".
+  - `ex1_countVowels : String -> Int`
+    Count the number of vowels in the input.
+    For the purposes of this exercise, the letters "a", "e", "i", "o",
+    and "u" are considered vowels.
+    (Upper-case versions are also vowels!)
 
-  - `countVowels : String -> Int`
+  - `ex2_toCamelCase : String -> String`
+    Convert a sentence to camelCase.
+    Capitalize the first letter of each word except the first,
+    make sure all other letters are lower case,
+    and remove all spaces.
 
-Count the number of vowels in the input.
-For the purposes of this exercise, the letters "a", "e", "i", "o",
-and "u" are considered vowels.
-(Upper-case versions are also vowels!)
+  - `ex3_diffList : List Int -> Maybe (List Int)`
+    Given a list of positive integers,
+    compute the list of differences between successive terms.
+    Notice, this list will be one shorter than that starting list.
+    If the user gives only one integer, return an empty list.
+    If the user gives empty input, return `Nothing`".
 
-  - `toCamelCase : String -> String`
+  - `ex4_partialSums : List Int -> List Int`
+    Given a list of positive integers,
+    compute the list of partial sums, starting with 0.
+    Notice your list will be one longer than the input list.
+    If the user gives empty input, return the list `[0]`.
 
-Convert a sentence to camelCase.
-Capitalize the first letter of each word except the first,
-make sure all other letters are lower case,
-and remove all spaces.
-
-  - `diffList : List Int -> Maybe (List Int)`
-
-Given a list of positive integers,
-compute the list of differences between successive terms.
-Notice, this list will be one shorter than that starting list.
-If the user gives only one integer, return an empty list.
-If the user gives empty input, return `Nothing`".
-
-  - `partialSums : List Int -> List Int`
-
-Given a list of positive integers,
-compute the list of partial sums, starting with 0.
-Notice your list will be one longer than the input list.
-If the user gives empty input, return the list `[0]`.
-
-  - `simpleCalc : String -> String`
-
-Make a calculator capable of addition and multiplication of integers.
-Follow the ordinary order of operations, multiplication then addition.
-A `-` sign will always mean "negative" and never mean subtraction.
-If the input has any characters other than digits, "\*", "+", and "-",
-return the string, "Sorry, bad input!".
+  - `ex5_simpleCalc : String -> String`
+    Make a calculator capable of addition and multiplication of integers.
+    Follow the ordinary order of operations, multiplication then addition.
+    A `-` sign will always mean "negative" and never mean subtraction.
+    If the input has any characters other than digits, `*`, `+`, and `-`,
+    return the string, "Sorry, bad input!".
 
 -}
 type alias Exercises =

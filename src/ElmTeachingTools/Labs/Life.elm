@@ -67,21 +67,18 @@ type alias Board =
 {-| The rules we need to describe in order to make a working _Life_ game
 can be modeled by these three functions:
 
-  - `nextStatus`
+  - `nextStatus : Int -> CellStatus -> CellStatus`
+    Given the number of living neighbors and the current cell status, what
+    should the cell's next status be? Use the rules listed in the Wikipedia
+    article to write this function.
 
-Given the number of living neighbors and the current cell status, what
-should the cell's next status be? Use the rules listed in the Wikipedia
-article to write this function.
+  - `livingNeighbors : Board -> Cell -> Int`
+    Given the current board and a cell, how many living neighbors does that
+    cell have? You'll need a tiny bit of geometry to write this function.
 
-  - `livingNeighbors`
-
-Given the current board and a cell, how many living neighbors does that
-cell have? You'll need a tiny bit of geometry to write this function.
-
-  - `nextBoard`
-
-Given the current board, what should the next board be? You should use
-your `livingNeighbors` and `nextStatus` functions to write this function.
+  - `nextBoard : Board -> Board`
+    Given the current board, what should the next board be? You should use
+    your `livingNeighbors` and `nextStatus` functions to write this function.
 
 -}
 type alias LifeRules =
