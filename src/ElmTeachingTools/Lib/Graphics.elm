@@ -25,7 +25,8 @@ import Svg.Attributes as Attr
 import Svg.Events as Events
 
 
-{-| A "scaled vector graphic" that can be drawn on a `Screen`.
+{-| A "scaled vector graphic" that can generate events of type `e` and
+can be drawn on a `Screen`.
 -}
 type alias Graphic e =
     Svg.Svg e
@@ -108,7 +109,8 @@ curve props =
         [ mkPath <| (M props.start <| Q props.control props.end <| N) ]
 
 
-{-| A web page consisting of a screen onto which `Graphic`s can be drawn.
+{-| A web page consisting of a screen that can generate events of type
+`e` and onto which `Graphic`s can be drawn.
 -}
 type alias Screen e =
     Browser.Document e

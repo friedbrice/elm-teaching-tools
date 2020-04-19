@@ -57,9 +57,9 @@ type Color
 
 {-| Get the RGB hex notation of a `Color`.
 
-    hexValue (Color "#c0c0c0") -- "#c0c0c0"
-
-    hexValue white -- "#ffffff"
+    --| Example
+    hexValue (Color "#c0c0c0")
+    --> "#c0c0c0"
 
 -}
 hexValue : Color -> String

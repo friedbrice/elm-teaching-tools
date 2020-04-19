@@ -91,11 +91,17 @@ type alias LifeRules =
 {-| To complete this lab, import this library into your own Elm file,
 create an appropriate `LifeRules` record, and use it in `runLife`.
 
+    module Main exposing (main)
+
     import ElmTeachingTools.Labs.Life exposing (..)
 
-    myLifeRules = { ... }
+    myLifeRules : LifeRules
+    myLifeRules =
+        { -- your code here
+        }
 
-    main = runLife myLifeRules
+    main =
+        runLife myLifeRules
 
 -}
 runLife : LifeRules -> Game.Game State Event

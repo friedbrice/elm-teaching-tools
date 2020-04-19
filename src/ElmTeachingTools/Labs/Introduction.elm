@@ -79,11 +79,17 @@ type alias Exercises =
 create an appropriate `Exercises` value, and use your `Exercises` value
 with `runIntroduction`.
 
+    module Main exposing (main)
+
     import ElmTeachingTools.Labs.Introduction exposing (..)
 
-    myExercises = { ... }
+    myExercises : Exercises
+    myExercises =
+        { -- your code here
+        }
 
-    main = runIntroduction myExercises
+    main =
+        runIntroduction myExercises
 
 -}
 runIntroduction : Exercises -> Program () Model Message
@@ -130,8 +136,8 @@ type alias TestResult =
 update : Exercises -> Message -> Model -> Model
 update ex action state =
     case action of
-        SetExercise newDay ->
-            { state | exercise = newDay }
+        SetExercise newExercise ->
+            { state | exercise = newExercise }
 
         SetInput newInput ->
             { state | input = newInput }
@@ -170,7 +176,11 @@ dispatch ex exercise =
 
         E1 ->
             ( String.fromInt << ex.ex1_countVowels
-            , List.map (\( x, y ) -> ( x, String.fromInt y )) countVowelsTests
+            , List.map
+                (\( x, y ) ->
+                    ( x, String.fromInt y )
+                )
+                countVowelsTests
             )
 
         E2 ->
@@ -179,13 +189,25 @@ dispatch ex exercise =
             )
 
         E3 ->
-            ( Maybe.cases "Sorry, bad input!" String.fromInts << Maybe.compose ex.ex3_diffList String.toInts
-            , List.map (\( x, y ) -> ( String.fromInts x, String.fromInts x )) diffListTests
+            ( Maybe.cases "Sorry, bad input!" String.fromInts
+                << Maybe.compose ex.ex3_diffList String.toInts
+            , List.map
+                (\( x, y ) ->
+                    ( String.fromInts x, String.fromInts x )
+                )
+                diffListTests
             )
 
         E4 ->
-            ( Maybe.cases "Sorry, bad input!" (String.fromInts << ex.ex4_partialSums) << String.toInts
-            , List.map (\( x, y ) -> ( String.fromInts x, String.fromInts y )) partialSumsTests
+            ( Maybe.cases
+                "Sorry, bad input!"
+                (String.fromInts << ex.ex4_partialSums)
+                << String.toInts
+            , List.map
+                (\( x, y ) ->
+                    ( String.fromInts x, String.fromInts y )
+                )
+                partialSumsTests
             )
 
         E5 ->
