@@ -17,7 +17,7 @@ The `Lib` module root contains several modules that wrap or extend built-in libr
 
 ## Labs
 
-The `Labs` module root contains several labs that can be completed in the classroom. The labs are meant to be self-contained, so that students may use tools such as [Ellie][ellie-app.com/].
+The `Labs` module root contains several labs that can be completed in the classroom. The labs are meant to be self-contained, so that students may use tools such as [Ellie](https://ellie-app.com/).
 
 
 ## License and Copyright
