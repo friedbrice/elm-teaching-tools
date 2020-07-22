@@ -1,9 +1,9 @@
 module ElmTeachingTools.Lib.ColorDoc exposing (..)
 
 import ElmTeachingTools.Lib.Color exposing (..)
-import ElmTeachingTools.TestCommon exposing (..)
 import Expect
 import Test
+import TestCommon exposing (..)
 
 
 suite : Test.Test

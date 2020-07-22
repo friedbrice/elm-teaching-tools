@@ -1,9 +1,9 @@
 module ElmTeachingTools.Lib.StringDoc exposing (..)
 
 import ElmTeachingTools.Lib.String exposing (..)
-import ElmTeachingTools.TestCommon exposing (..)
 import Expect
 import Test
+import TestCommon exposing (..)
 
 
 suite : Test.Test
